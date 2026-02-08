@@ -1,16 +1,12 @@
 from utils import clear, int_input
 import menus
 
+
 def main_menu():
     clear()
-    print(
-        "Todo-list v1.0",
-        "",
-        "1. Просмотреть задачи",
-        "2. Добавить задачу",
-        "",
-        sep="\n"
-    )
+    print("Todo-list v1.0\n")
+    print("1. Просмотреть задачи")
+    print("2. Добавить задачу\n")
     user_choice = int_input("Выбор: ")
 
     clear()

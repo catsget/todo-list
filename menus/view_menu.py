@@ -1,3 +1,10 @@
+from storage import storage
+
+
 def view_menu():
-    print("test1")
+    tasks = storage.load_tasks()
+    
+    for task in tasks:
+        print(f"Название: {task.name}\n")
+    
     input()
