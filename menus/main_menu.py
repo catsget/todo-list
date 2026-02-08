@@ -1,4 +1,5 @@
 from utils import clear, int_input
+import menus
 
 def main_menu():
     clear()
@@ -14,11 +15,9 @@ def main_menu():
 
     clear()
     if user_choice == 1:
-        print("test1")
-        input()
+        menus.view_menu()
     elif user_choice == 2:
-        print("test2")
-        input()
+        menus.add_menu()
     elif user_choice == "":
         pass
     else:
