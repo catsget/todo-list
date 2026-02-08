@@ -19,6 +19,8 @@ def main_menu():
     elif user_choice == 2:
         print("test2")
         input()
+    elif user_choice == "":
+        pass
     else:
         print("Некорректное значение")
         input()

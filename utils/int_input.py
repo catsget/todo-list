@@ -1,6 +1,7 @@
 def int_input(text: str):
     try:
-        number = int(input(text))
+        user_input = input(text)
+        number = int(user_input)
         return number
     except ValueError:
-        return None
+        return user_input
