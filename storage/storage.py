@@ -8,32 +8,26 @@ tasks = []
 def load_tasks():
     global tasks
     try:
-        with open("tasks.json", "r") as file:
+        with open("tasks.json", "r", encoding="utf-8") as file:
             tasks = []
 
-            for task in json.load(file):
+            for task in json.load(file, ):
                 tasks.append(to_object(task))
 
-            if tasks != []:
-                return tasks
     except (FileNotFoundError, json.JSONDecodeError):
         tasks = []
-    except Exception as e:
-        print(e)
-        input()
+    
+    return tasks
 
 
-def add_task(task_name: str):
+def add_task(task_name: str, task_desc: str):
     global tasks
 
-    if not tasks:
-        load_tasks()
-
     try:
-        new_task = Task(name=task_name)
+        new_task = Task(name=task_name, desc=task_desc)
         tasks.append(new_task)
-        with open("tasks.json", "w") as file:
-            json.dump([to_dict(t) for t in tasks], file)
+        with open("tasks.json", "w", encoding="utf-8") as file:
+            json.dump([to_dict(t) for t in tasks], file, ensure_ascii=False, indent=2)
 
     except Exception as e:
         print(e)

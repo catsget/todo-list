@@ -1,7 +1,9 @@
 from menus import main_menu
+from storage import load_tasks
 
 
 def main():
+    load_tasks()
     while True:
         try:
             main_menu()
