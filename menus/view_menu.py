@@ -66,6 +66,8 @@ def view_menu():
             user_choice = int_input("Выбор: ")
 
             if isinstance(user_choice, int):
+                task = tasks[user_choice]
+
                 menus.edit_menu(task)
             else:
                 break
