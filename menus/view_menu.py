@@ -1,11 +1,8 @@
 from storage import storage
-from rich.console import Console
 from rich.table import Table
 from rich import box
 import menus
 from utils import clear, int_input
-
-console = Console()
 
 
 def get_colored_status(status: str):
@@ -18,7 +15,7 @@ def get_colored_status(status: str):
     return new_status
 
 
-def create_task_table():
+def create_tasks_table():
     table = Table(title="Задания", show_lines=True, box=box.ROUNDED, padding=(0, 4))
 
     table.add_column(
@@ -45,11 +42,11 @@ def create_task_table():
     return table
 
 
-def view_menu():
+def view_menu(console):
     while True:
         clear()
         try:
-            table = create_task_table()
+            table = create_tasks_table()
             tasks = storage.tasks
 
             if not tasks:
@@ -65,8 +62,9 @@ def view_menu():
 
             if isinstance(user_choice, int):
                 task = tasks[user_choice]
+                task_id = tasks.index(task)
 
-                menus.edit_menu(task)
+                menus.edit_menu(task, console, task_id)
             else:
                 break
         except Exception as e:

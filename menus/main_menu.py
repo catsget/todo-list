@@ -1,5 +1,8 @@
+from rich.console import Console
 from utils import clear, int_input
 import menus
+
+console = Console()
 
 
 def main_menu():
@@ -11,7 +14,7 @@ def main_menu():
 
     clear()
     if user_choice == 1:
-        menus.view_menu()
+        menus.view_menu(console)
     elif user_choice == 2:
         menus.add_menu()
     elif user_choice == "":
