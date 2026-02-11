@@ -39,7 +39,7 @@ def create_task_table():
         no_wrap=True,
     )
     table.add_column(
-        "Статус", justify="center", header_style="red bold", style="red", no_wrap=True
+        "Статус", justify="center", header_style="white bold", style="red", no_wrap=True
     )
 
     return table
@@ -57,9 +57,7 @@ def view_menu():
 
             for task in tasks:
                 task_id = str(tasks.index(task))
-                table.add_row(
-                    task_id, task.name, task.desc, get_colored_status(task.status)
-                )
+                table.add_row(task_id, task.name, task.desc, get_colored_status(task.status))
 
             console.print(table)
 
