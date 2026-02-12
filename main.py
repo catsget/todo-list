@@ -4,13 +4,7 @@ from storage import load_tasks
 
 def main():
     load_tasks()
-    while True:
-        try:
-            main_menu()
-        except KeyboardInterrupt:
-            break
-        except Exception as e:
-            print(e)
+    main_menu()
 
 
 if __name__ == "__main__":
