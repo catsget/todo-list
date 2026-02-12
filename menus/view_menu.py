@@ -7,7 +7,7 @@ from utils import clear, int_input
 
 def get_colored_status(status: str):
     new_status = None
-    if status == "Завершенная":
+    if status == "Завершенное":
         new_status = f"[green]{status}[/green]"
     else:
         new_status = f"[red]{status}[/red]"
@@ -50,23 +50,30 @@ def view_menu(console):
             tasks = storage.tasks
 
             if not tasks:
-                return
+                print("У вас нет заданий")
+                input()
+                break
 
             for task in tasks:
                 task_id = str(tasks.index(task))
                 table.add_row(task_id, task.name, task.desc, get_colored_status(task.status))
 
             console.print(table)
+            print("Нажмите ENTER чтобы вернуться в главное меню\n")
 
             user_choice = int_input("Выбор: ")
 
-            if isinstance(user_choice, int):
+            if isinstance(user_choice, int) and user_choice <= (len(tasks) - 1):
                 task = tasks[user_choice]
                 task_id = tasks.index(task)
 
                 menus.edit_menu(task, console, task_id)
-            else:
+            elif isinstance(user_choice, str):
                 break
+            else:
+                clear()
+                console.print("[red]Неправильный номер[/red]")
+                input()
         except Exception as e:
             print(e)
             input()

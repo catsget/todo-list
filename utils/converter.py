@@ -6,4 +6,4 @@ def to_dict(obj: object):
 
 
 def to_object(dt: dict):
-    return Task(dt["name"], dt["desc"])
+    return Task(dt["name"], dt["desc"], dt["status"])
