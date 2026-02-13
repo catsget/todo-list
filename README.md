@@ -8,7 +8,6 @@ I recommend launch with python for max performance, but you can launch binary fi
 pip3 install -r requirements.txt
 python3 main.py
 ```
-or
 ### Linux
 #### Launch
 ```
