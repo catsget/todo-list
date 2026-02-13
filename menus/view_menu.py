@@ -18,26 +18,22 @@ def get_colored_status(status: str):
 def create_tasks_table():
     table = Table(title="Задания", show_lines=True, box=box.ROUNDED, padding=(0, 4))
 
-    table.add_column(
-        "ID", justify="center", header_style="green bold", style="green", no_wrap=True
-    )
+    table.add_column("ID", vertical="middle", justify="center", header_style="green bold", style="green")
     table.add_column(
         "Название",
+        vertical="middle",
         justify="center",
         header_style="magenta bold",
         style="magenta",
-        no_wrap=True,
     )
     table.add_column(
         "Описание",
+        vertical="middle",
         justify="center",
         header_style="cyan bold",
         style="cyan",
-        no_wrap=True,
     )
-    table.add_column(
-        "Статус", justify="center", header_style="white bold", style="red", no_wrap=True
-    )
+    table.add_column("Статус", vertical="middle", justify="center", header_style="white bold", style="red")
 
     return table
 
@@ -56,7 +52,9 @@ def view_menu(console):
 
             for task in tasks:
                 task_id = str(tasks.index(task))
-                table.add_row(task_id, task.name, task.desc, get_colored_status(task.status))
+                table.add_row(
+                    task_id, task.name, task.desc, get_colored_status(task.status)
+                )
 
             console.print(table)
             print("Нажмите ENTER чтобы вернуться в главное меню\n")

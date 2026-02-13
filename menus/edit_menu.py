@@ -84,7 +84,7 @@ def edit_menu(task, console, task_id):
                 task.status = "Не завершенное"
         elif choice == 4:
             clear()
-            print("Вы уверены? y or n\n")
+            console.print("Вы уверены? [green bold]y[/] or [red bold]n[/]\n")
             confirm = input()
 
             if confirm == "y":
