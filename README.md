@@ -1,6 +1,8 @@
 ## Todo list
 This Simple CLI based todo-list with some customization
 
+## Used libraries
+- rich v14.3
 ## Installation
 ### Python
 I recommend launch with python for max performance, but you can launch binary file for win64 or linux64
